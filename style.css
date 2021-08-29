@@ -1,0 +1,12 @@
+#country-container{
+    padding: 0% 5%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.box{
+    border: 1px solid red;
+    border-radius: 15px;
+    padding: 2%;
+    margin: 4%;
+    width: 95%;
+}
