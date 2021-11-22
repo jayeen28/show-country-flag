@@ -11,7 +11,7 @@ const placeData = (countries) => {
         const newDiv = document.createElement('div');
         newDiv.classList.add('row');
         newDiv.classList.add('box');
-        const countryName = country.name;
+        const countryName = country.name.common;
         newDiv.innerHTML = `
         <div class="col" id="button-place">
         <h6>
@@ -24,7 +24,7 @@ const placeData = (countries) => {
         </div>
         <div class="col">
         <h6>Flag</h6>
-        <p><img class="img-fluid" id=${'flag' + i}></p>
+        <div class="country-flag"><img class="img-fluid" id=${'flag' + i}></div>
         </div>
         `
         countryContainer.appendChild(newDiv);
@@ -32,10 +32,10 @@ const placeData = (countries) => {
 }
 
 const loadFlag = (id, name) => {
-    fetch(`https://restcountries.eu/rest/v2/name/${name}`)
+    fetch(`https://restcountries.com/v3.1/name/${name}`)
         .then(res => res.json())
         .then(data => showFlag(data, id));
 }
 const showFlag = (data, id) => {
-    document.getElementById(id).src = data[0].flag;
+    document.getElementById(id).src = data[0].flags.png;
 }
